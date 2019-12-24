@@ -3,6 +3,6 @@
  */
 public interface Fillable
 {
-    public boolean isFilled();
-    public void setFilled(Boolean filled);
+    boolean isFilled();
+    void setFilled(Boolean filled);
 }

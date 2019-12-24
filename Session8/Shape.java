@@ -1,5 +1,3 @@
-import java.util.Queue;
-
 /**
  * The abstract class Shape represents any shape in two dimensional space.
  * A Shape has x and y coordinates which are the coordinates of the midpoint of the shape.
@@ -25,6 +23,8 @@ public abstract class Shape
     /** Any concrete subclass of Shape should implement a move method which changes its position */
     public abstract void move(double dx, double dy);
 
+
+    // Getters and Setters 
     public String getColor()
     {
         return this.color;
