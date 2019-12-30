@@ -1,5 +1,3 @@
-package lk.ac.pdn;
-
 public enum AccessLevel{
   FULL_ACCESS("***"),
   LIMITED_ACCESS("**"),
