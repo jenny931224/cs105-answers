@@ -1,28 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package lk.intel.service_record;
 import java.lang.StringBuffer;
-/**
- *
- * @author Hp-Pc
- */
+
 public class ServiceRecord {
     private StringBuffer previousRanks;
     private String currentRank;
     private int yearsOfService;
     private int successfulMissionCount;
     
-    public ServiceRecord(StringBuffer pr,String cr,int yrs,int mcount){
-        this.previousRanks=pr;
+    public ServiceRecord(Striing pr,String cr,int yrs,int mcount){
+        this.previousRanks=new StringBuffer(pr);
         this.currentRank=cr;
         this.yearsOfService=yrs;
         this.successfulMissionCount=mcount;
     }
     
-    public void setPreviousRanks(StringBuffer pr){
-        this.previousRanks=pr;
+    public void setPreviousRanks(String pr){
+        this.previousRanks.append(pr);
     }
     
     public StringBuffer getPreviousRanks(){

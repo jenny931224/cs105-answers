@@ -1,13 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package lk.intel.agent;
 import lk.intel.service_record.ServiceRecord;
-/**
- *
- * @author Hp-Pc
- */
+
 public class Agent {
     public String codeName;
     private String realName;
@@ -22,10 +15,10 @@ public class Agent {
     }
     
     public void setRealName(String rn){
-	int length = String.valueof(rn).length();
-	if(length<7){
-		this.realName=rn;
-	}
+	    int length = String.valueof(rn).length();
+        if(length<7){
+            this.realName=rn;
+        }
         
     }
     
@@ -42,15 +35,11 @@ public class Agent {
     }
     
     public void promote(String rank){
-	int previousRankCount = servicerecord.previousRanks.length();
-	if(servicerecord.getYearsOfService/10 > previousRankCount){
-		servicerecord.previousRanks.append(servicerecord.currentRank);
-        	System.out.println("\nThe previous rank:"+ servicerecord.currentRank);
-		serviceRecord.currentRank = rank;
-		System.out.println("\nThe previous rank:"+ servicerecord.currentRank);
-	}
-	
-
+        int previousRankCount = servicerecord.previousRanks.length();
+        if(servicerecord.getYearsOfService()/10 >= previousRankCount){
+            servicerecord.setPreviousRank(serviceRecord.getCurrentRank());
+            serviceRecord.setCurrentRank(rank);
+        }
     }
     
     public void missionSuccess(){

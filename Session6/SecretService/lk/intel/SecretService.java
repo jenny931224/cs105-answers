@@ -1,16 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package lk.intel;
 import lk.intel.service_record.ServiceRecord;
 import lk.intel.agent.Agent;
 import java.lang.String;
 import java.lang.StringBuffer;
-/**
- *
- * @author Hp-Pc
- */
+
 public class SecretService {
     public static void main(String[] args){
         Agent agent1 = new Agent("007","James Bond",191083);
