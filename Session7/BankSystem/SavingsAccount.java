@@ -1,14 +1,14 @@
-package lk.ac.pdn;
-
 public class SavingsAccount extends Account {
 	
 	 
 	protected double withdrawLimit;
+	private SpecialInterest interest;
 	
-	 SavingsAccount(String accountID, String accountHolder, double amount,double withdraw) {
+	public SavingsAccount(String accountID, String accountHolder, double amount,double withdraw) {
 		  super(accountID, accountHolder, amount); 
 		  this.withdrawLimit = withdraw;
-	  }
+		  this.interest = new SpecialInterest(0.05, 1000000.00); // interest rate: 5%, value Limit: 1000000/=
+	}
 	 
 	
 	public void setWithdrawLimit(double amount) {
@@ -20,16 +20,16 @@ public class SavingsAccount extends Account {
 	}
 	
 	@Override
-	public double withdraw(double withdrawalamount) {
-		 if(withdrawalamount<getWithdrawalLimit() && withdrawalamount<amount) { 
+	public boolean withdraw(double withdrawalamount) {
+		this.amount += this.interest.calInterest(this.amount); // passed the value as a string
+		if(withdrawalamount <= getWithdrawalLimit() && withdrawalamount <= this.amount) { 
 			 amount -=withdrawalamount; 
-		 } 
-		 return amount; 
+			 return true;
+		} 
+		return false; 
 		 
 	}
 		
-	
-	
 	@Override
 	public void details() {
 		super.details();

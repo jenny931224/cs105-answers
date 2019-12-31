@@ -1,13 +1,12 @@
-package lk.ac.pdn;
-
 public class KidsAccount extends SavingsAccount {
-	KidsAccount(String accountID, String accountHolder, double amount, double withdrawLimit,String guardian) {
+
+	private String guardian;
+
+	public KidsAccount(String accountID, String accountHolder, double amount, double withdrawLimit,String guardian) {
 		super(accountID, accountHolder, amount, withdrawLimit);
 		this.guardian = guardian;
 	}
 
-	private String guardian;
-	
 	public void setGuardian(String guardian) {
 		this.guardian = guardian;
 	}
@@ -16,12 +15,13 @@ public class KidsAccount extends SavingsAccount {
 		return this.guardian;
 	}
 	
-	public void withdraw(double withdrawAmount, String guardian) {
-		System.out.println("You can only withdraw if you specify a guardian\n");
-		System.out.println("Guardian of child: " + guardian);
+	public boolean withdraw(double withdrawAmount, String guardian) {
 		if(withdrawAmount<amount && getGuardian() == guardian) {
 			amount -= withdrawAmount;
-		}
-	
+			return true;
+		}else{
+			System.out.println("You can only withdraw with the authorization of the guardian");
+			return false;
+		}	
 	}
 }

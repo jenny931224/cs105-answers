@@ -1,5 +1,3 @@
-package lk.ac.pdn;
-
 public class Account {
 	public String accountID;
 	protected String accountHolder;
@@ -9,26 +7,30 @@ public class Account {
 		this.accountHolder = accHolder;
 	}
 	
+	//Default Constructor
 	Account(){
 		
-	}//Default Constructor
+	}
 	
 	Account(String accountID, String accountHolder, double amount){
 		this.accountHolder = accountHolder;
 		this.accountID = accountID;
 		this.amount = amount;
 	}
+
+	//method to deposit amount 
 	public void deposit(String depositAmount) {
 		this.amount += Integer.parseInt(depositAmount);
-	}//method to deposit amount 
+	}
 	
-	public double withdraw(double w) {
-		if(w<this.amount) {
-			amount -=w;
+	//method to check if withdrawal valid or not
+	public boolean withdraw(double w) {
+		if(w < this.amount) {
+			amount -= w;
+			return true;
 		}
-		return amount;
-		
-	}//method to check if withdrawal valid or not
+		return false;		
+	}
 	
 	public void details() {
 		System.out.println("*****Account Details******\n\n");
